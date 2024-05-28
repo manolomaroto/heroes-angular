@@ -4,14 +4,7 @@
         <button [class.selected]="hero === selectedHero" mat-stroked-button (click)="onSelect(hero)">{{hero.id}}-{{hero.name}}</button>
     </mat-list-item>
 </mat-list>
-
-<div *ngIf="selectedHero">
-    <h2>{{selectedHero.name | uppercase}} Details</h2>
-    <mat-form-field class="example-full-width">
-        <mat-label>Id: {{selectedHero.id}}</mat-label>
-        <input id="name" matInput placeholder="name" [(ngModel)]="selectedHero.name">
-    </mat-form-field>
-</div>
+<app-heroe-detail [hero]="selectedHero"></app-heroe-detail>
 
 
 

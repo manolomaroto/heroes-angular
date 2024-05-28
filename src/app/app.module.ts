@@ -11,11 +11,13 @@ import { HeroesComponent } from './heroes/heroes.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
+import { HeroeDetailComponent } from './heroe-detail/heroe-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent
+    HeroesComponent,
+    HeroeDetailComponent
   ],
   imports: [
     BrowserModule,
