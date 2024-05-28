@@ -1,8 +1,17 @@
-<h2>{{hero.name | uppercase}} Details</h2>
-<div><span>id: </span>{{hero.id}}</div>
-<div><span>name: </span>{{hero.name}}</div>
+<h2>My Heroes</h2>
+<mat-list role="list">
+    <mat-list-item role="listitem" *ngFor="let hero of heroes">
+        <button [class.selected]="hero === selectedHero" mat-stroked-button (click)="onSelect(hero)">{{hero.id}}-{{hero.name}}</button>
+    </mat-list-item>
+</mat-list>
 
-<mat-form-field class="example-full-width">
-    <mat-label>Hero name:</mat-label>
-    <input id="name" matInput placeholder="name" [(ngModel)]="hero.name">
-</mat-form-field>
+<div *ngIf="selectedHero">
+    <h2>{{selectedHero.name | uppercase}} Details</h2>
+    <mat-form-field class="example-full-width">
+        <mat-label>Id: {{selectedHero.id}}</mat-label>
+        <input id="name" matInput placeholder="name" [(ngModel)]="selectedHero.name">
+    </mat-form-field>
+</div>
+
+
+

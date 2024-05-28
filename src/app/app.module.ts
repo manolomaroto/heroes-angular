@@ -9,6 +9,8 @@ import { HeroesComponent } from './heroes/heroes.component';
 
 // Material
 import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import {MatInputModule} from '@angular/material/input';
     BrowserModule,
     AppRoutingModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatListModule,
+    MatButtonModule
   ],
   providers: [
     provideAnimationsAsync()
