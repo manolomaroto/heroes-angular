@@ -15,12 +15,14 @@ import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import { HeroeDetailComponent } from './heroe-detail/heroe-detail.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
-    HeroeDetailComponent
+    HeroeDetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
