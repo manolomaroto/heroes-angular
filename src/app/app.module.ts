@@ -7,11 +7,14 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HeroesComponent } from './heroes/heroes.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 // Material
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import { HeroeDetailComponent } from './heroe-detail/heroe-detail.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { HeroeDetailComponent } from './heroe-detail/heroe-detail.component';
     MatInputModule,
     FormsModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatGridListModule,
+    HttpClientModule
   ],
   providers: [
     provideAnimationsAsync()
