@@ -1,7 +1,10 @@
+<h1>Hero Detail</h1>
+{{hero}}
 <div *ngIf="hero">
     <h2>{{hero.name | uppercase}} Details</h2>
     <mat-form-field class="example-full-width">
         <mat-label>Id: {{hero.id}}</mat-label>
         <input id="name" matInput placeholder="name" [(ngModel)]="hero.name">
     </mat-form-field>
+    <button mat-stroked-button type="button" (click)="goBack()">go back</button>
 </div>

@@ -16,13 +16,15 @@ import {MatButtonModule} from '@angular/material/button';
 import { HeroeDetailComponent } from './heroe-detail/heroe-detail.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
     HeroeDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
