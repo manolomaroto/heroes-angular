@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HeroesComponent } from './heroes/heroes.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { LoaderInterceptor } from './interceptors/loader';
 
 // Material
 import {MatInputModule} from '@angular/material/input';
@@ -17,6 +18,8 @@ import { HeroeDetailComponent } from './heroe-detail/heroe-detail.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HeroesComponent,
     HeroeDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -34,10 +38,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatListModule,
     MatButtonModule,
     MatGridListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
