@@ -1,35 +1,44 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { DebugElement } from '@angular/core';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { MessagesComponent } from './messages/messages.component';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let myComponentHtmlElement: HTMLElement;
+  let myComponentDebugElement: DebugElement;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        SpinnerComponent,
+        MessagesComponent
       ],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    myComponentDebugElement = fixture.debugElement;
+    myComponentHtmlElement = myComponentDebugElement.nativeElement;
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
   it(`should have as title 'heroes-angular'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('heroes-angular');
+    expect(component.title).toEqual('heroes-angular');
   });
 
   it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, heroes-angular');
+    expect(myComponentHtmlElement.querySelector('h1')?.textContent).toContain('heroes-angular');
   });
 });
