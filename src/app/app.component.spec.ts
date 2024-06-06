@@ -27,6 +27,8 @@ describe('AppComponent', () => {
     component = fixture.componentInstance;
     myComponentDebugElement = fixture.debugElement;
     myComponentHtmlElement = myComponentDebugElement.nativeElement;
+
+    fixture.detectChanges();
   });
 
   it('should create the app', () => {
@@ -38,7 +40,26 @@ describe('AppComponent', () => {
   });
 
   it('should render title', () => {
-    fixture.detectChanges();
     expect(myComponentHtmlElement.querySelector('h1')?.textContent).toContain('heroes-angular');
   });
+
+  it('should have a app-spinner component', () => {
+    expect(myComponentHtmlElement.querySelector('app-spinner')).toBeTruthy();
+  })
+
+  it('should have div with topNav class', () => {
+    expect(myComponentHtmlElement.querySelector('nav.topnav')).toBeTruthy();
+  });
+
+  it('should have two a tags with routerLink attribute', () => {
+    expect(myComponentHtmlElement.querySelectorAll('a[routerLink]').length).toEqual(2);
+  })
+
+  it('should have a router-outlet tag', () => {
+    expect(myComponentHtmlElement.querySelector('router-outlet')).toBeTruthy();
+  })
+
+  it('should have a app-messages tag', () => {
+    expect(myComponentHtmlElement.querySelector('app-messages')).toBeTruthy();
+  })
 });

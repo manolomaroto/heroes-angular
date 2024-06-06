@@ -20,7 +20,7 @@ export class HeroesComponent {
   getHeroes(): void {
     this.heroService.getHeroes()
       .subscribe(heroes => {
-        this.heroes = heroes.slice(0,50);
+        this.heroes = heroes.slice(0,10);
       })
   }
 
